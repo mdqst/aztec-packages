@@ -291,6 +291,7 @@ describe('e2e_block_building', () => {
       await account.deploy().wait();
       const thisWallet = await account.getWallet();
       const outgoingViewer = thisWallet.getAddress();
+      await pxe.registerAccount(thisWallet.getSecretKey(), thisWallet.getCompleteAddress().partialAddress);
 
       // call test contract
       const action = testContract.methods.emit_encrypted_logs_nested(10, thisWallet.getAddress(), outgoingViewer);

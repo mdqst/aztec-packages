@@ -1,9 +1,9 @@
 use dep::protocol_types::{
     address::AztecAddress,
     constants::{GENERATOR_INDEX__SYMMETRIC_KEY, PRIVATE_LOG_SIZE_IN_BYTES},
-    hash::poseidon2_hash_with_separator,
+    hash::{poseidon2_hash, poseidon2_hash_with_separator},
     point::Point,
-    public_keys::OvpkM,
+    public_keys::{AddressPoint, OvpkM},
     scalar::Scalar,
 };
 use std::{
@@ -13,10 +13,10 @@ use std::{
 
 use crate::{
     encrypted_logs::header::EncryptedLogHeader,
-    keys::point_to_symmetric_key::point_to_symmetric_key, oracle::random::random,
+    keys::point_to_symmetric_key::point_to_symmetric_key,
+    oracle::{notes::{get_app_tagging_secret, increment_app_tagging_secret}, random::random},
     utils::point::point_to_bytes,
 };
-use protocol_types::public_keys::AddressPoint;
 
 pub comptime global PRIVATE_LOG_OVERHEAD_IN_BYTES: u32 = 304;
 
@@ -125,8 +125,16 @@ fn compute_encrypted_log<let P: u32, let M: u32>(
     let mut encrypted_bytes = [0; M];
     let mut offset = 0;
 
-    // @todo We ignore the tags for now
-    // incoming_tag
+    let tagging_secret = unsafe { get_app_tagging_secret(sender, recipient) };
+
+    unsafe { increment_app_tagging_secret(sender, recipient); };
+
+    let tag = tagging_secret.compute_tag();
+    let tag_bytes: [u8; 32] = tag.to_be_bytes();
+
+    for i in 0..32 {
+        encrypted_bytes[offset + i] = tag_bytes[i];
+    }
     offset += 32;
 
     // eph_pk
