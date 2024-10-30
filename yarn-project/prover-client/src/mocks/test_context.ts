@@ -37,6 +37,7 @@ import * as fs from 'fs/promises';
 import { type MockProxy, mock } from 'jest-mock-extended';
 
 import { TestCircuitProver } from '../../../bb-prover/src/test/test_circuit_prover.js';
+import { type AvmPersistableStateManager } from '../../../simulator/src/avm/journal/journal.js';
 import { ProvingOrchestrator } from '../orchestrator/index.js';
 import { MemoryProvingQueue } from '../prover-agent/memory-proving-queue.js';
 import { ProverAgent } from '../prover-agent/prover-agent.js';
@@ -158,6 +159,7 @@ export class TestContext {
     txValidator?: TxValidator<ProcessedTx>,
   ) {
     const defaultExecutorImplementation = (
+      _stateManager: AvmPersistableStateManager,
       execution: PublicExecutionRequest,
       _constants: CombinedConstantData,
       availableGas: Gas,
@@ -198,6 +200,7 @@ export class TestContext {
     txHandler?: ProcessedTxHandler,
     txValidator?: TxValidator<ProcessedTx>,
     executorMock?: (
+      stateManager: AvmPersistableStateManager,
       execution: PublicExecutionRequest,
       constants: CombinedConstantData,
       availableGas: Gas,

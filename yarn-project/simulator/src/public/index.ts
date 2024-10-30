@@ -8,4 +8,5 @@ export * from './public_db_sources.js';
 export * from './public_kernel.js';
 export * from './public_kernel_circuit_simulator.js';
 export { PublicProcessor, PublicProcessorFactory } from './public_processor.js';
-export { PublicSideEffectTrace } from './side_effect_trace.js';
+export { PublicSideEffectTrace, } from './side_effect_trace.js';
+export { PublicEnqueuedCallSideEffectTrace, } from './enqueued_call_side_effect_trace.js';
