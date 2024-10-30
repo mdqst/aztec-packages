@@ -301,7 +301,6 @@ export class L1ToL2TokenPortalManager {
       this.portal.abi,
       'DepositToAztecPrivate',
       log =>
-        log.args.secretHashForRedeemingMintedNotes === redeemSecretHash.toString() &&
         log.args.amount === amount &&
         log.args.secretHashForL2MessageConsumption === claimSecretHash.toString(),
       this.logger,
