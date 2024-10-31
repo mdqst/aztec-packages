@@ -1,4 +1,4 @@
-import { type PublicExecutionRequest } from '@aztec/circuit-types';
+import { MerkleTreeWriteOperations, type PublicExecutionRequest } from '@aztec/circuit-types';
 import { type AvmSimulationStats } from '@aztec/circuit-types/stats';
 import {
   type CombinedConstantData,
@@ -33,7 +33,11 @@ import { PublicSideEffectTrace } from './side_effect_trace.js';
 export class PublicExecutor {
   metrics: ExecutorMetrics;
 
-  constructor(private readonly worldStateDB: WorldStateDB, client: TelemetryClient) {
+  constructor(
+    private readonly worldStateDB: WorldStateDB,
+    client: TelemetryClient,
+    public treeDb: MerkleTreeWriteOperations,
+  ) {
     this.metrics = new ExecutorMetrics(client, 'PublicExecutor');
   }
 
@@ -83,6 +87,7 @@ export class PublicExecutor {
       this.worldStateDB,
       trace,
       pendingSiloedNullifiers.map(n => n.value),
+      this.treeDb,
     );
 
     const avmExecutionEnv = createAvmExecutionEnvironment(executionRequest, constants.globalVariables, transactionFee);

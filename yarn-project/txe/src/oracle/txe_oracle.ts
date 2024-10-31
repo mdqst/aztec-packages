@@ -627,6 +627,7 @@ export class TXE implements TypedOracle {
     const executor = new PublicExecutor(
       new TXEWorldStateDB(await this.trees.getLatest(), new TXEPublicContractDataSource(this)),
       new NoopTelemetryClient(),
+      await this.trees.getLatest(),
     );
     const execution = new PublicExecutionRequest(callContext, args);
 
