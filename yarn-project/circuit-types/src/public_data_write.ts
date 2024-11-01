@@ -1,6 +1,9 @@
 import { STRING_ENCODING } from '@aztec/circuits.js';
 import { Fr } from '@aztec/foundation/fields';
+import { schemas } from '@aztec/foundation/schemas';
 import { BufferReader, serializeToBuffer } from '@aztec/foundation/serialize';
+
+import { z } from 'zod';
 
 /**
  * Write operations on the public state tree.
@@ -18,6 +21,19 @@ export class PublicDataWrite {
      */
     public readonly newValue: Fr,
   ) {}
+
+  static get schema() {
+    return z
+      .object({
+        leafIndex: schemas.Fr,
+        newValue: schemas.Fr,
+      })
+      .transform(PublicDataWrite.from);
+  }
+
+  toJSON() {
+    return { leafIndex: this.leafIndex, newValue: this.newValue };
+  }
 
   /**
    * Creates a new public data write operation from the given arguments.

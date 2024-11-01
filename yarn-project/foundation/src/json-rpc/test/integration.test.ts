@@ -37,6 +37,18 @@ describe('JsonRpc integration', () => {
       expect(note).toBeInstanceOf(TestNote);
     });
 
+    it('calls an RPC function without an optional parameter', async () => {
+      const notes = await client.getNotes();
+      expect(notes).toEqual(testNotes);
+      expect(notes.every(note => note instanceof TestNote)).toBe(true);
+    });
+
+    it('calls an RPC function with an optional parameter', async () => {
+      const notes = await client.getNotes(1);
+      expect(notes).toEqual([testNotes[0]]);
+      expect(notes.every(note => note instanceof TestNote)).toBe(true);
+    });
+
     it('calls an RPC function with incorrect parameter type', async () => {
       await expect(() => client.getNote('foo' as any)).rejects.toThrow('Expected number, received string');
     });

@@ -36,7 +36,7 @@ export class TestNote {
 
 export interface TestStateApi {
   getNote: (index: number) => Promise<TestNote>;
-  getNotes: () => Promise<TestNote[]>;
+  getNotes: (limit?: number) => Promise<TestNote[]>;
   clear: () => Promise<void>;
   addNotes: (notes: TestNote[]) => Promise<TestNote[]>;
   fail: () => Promise<void>;
@@ -73,9 +73,9 @@ export class TestState implements TestStateApi {
     return this.notes.length;
   }
 
-  async getNotes(): Promise<TestNote[]> {
+  async getNotes(limit?: number): Promise<TestNote[]> {
     await sleep(0.1);
-    return this.notes;
+    return limit ? this.notes.slice(0, limit) : this.notes;
   }
 
   async clear(): Promise<void> {
@@ -113,7 +113,7 @@ export class TestState implements TestStateApi {
 
 export const TestStateSchema: ApiSchemaFor<TestStateApi> = {
   getNote: z.function().args(z.number()).returns(TestNote.schema),
-  getNotes: z.function().returns(z.array(TestNote.schema)),
+  getNotes: z.function().args(schemas.Integer.optional()).returns(z.array(TestNote.schema)),
   clear: z.function().returns(z.void()),
   addNotes: z.function().args(z.array(TestNote.schema)).returns(z.array(TestNote.schema)),
   fail: z.function().returns(z.void()),
