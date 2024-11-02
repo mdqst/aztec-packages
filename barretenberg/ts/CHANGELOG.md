@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.63.0](https://github.com/AztecProtocol/aztec-packages/compare/barretenberg.js-v0.62.0...barretenberg.js-v0.63.0) (2024-11-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove `recursive` from ACIR format; add them to API and CLI ([#9479](https://github.com/AztecProtocol/aztec-packages/issues/9479))
+
+### Bug Fixes
+
+* Remove extra `number` from return type of `acirGetCircuitSizes` ([#9493](https://github.com/AztecProtocol/aztec-packages/issues/9493)) ([1aef553](https://github.com/AztecProtocol/aztec-packages/commit/1aef553d0991fca9940ed0521dab246de08a0a77))
+
+
+### Miscellaneous
+
+* Remove `recursive` from ACIR format; add them to API and CLI ([#9479](https://github.com/AztecProtocol/aztec-packages/issues/9479)) ([d2a84c4](https://github.com/AztecProtocol/aztec-packages/commit/d2a84c405291b5a04576c133b0e74327d9092db1))
+
 ## [0.62.0](https://github.com/AztecProtocol/aztec-packages/compare/barretenberg.js-v0.61.0...barretenberg.js-v0.62.0) (2024-11-01)
 
 

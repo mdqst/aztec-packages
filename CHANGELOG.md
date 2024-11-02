@@ -1,5 +1,39 @@
 # Changelog
 
+## [0.63.0](https://github.com/AztecProtocol/aztec-packages/compare/aztec-packages-v0.62.0...aztec-packages-v0.63.0) (2024-11-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove `recursive` from ACIR format; add them to API and CLI ([#9479](https://github.com/AztecProtocol/aztec-packages/issues/9479))
+
+### Features
+
+* **deploys:** OTEL_RESOURCE_ATTRIBUTES ([#9642](https://github.com/AztecProtocol/aztec-packages/issues/9642)) ([86b2490](https://github.com/AztecProtocol/aztec-packages/commit/86b249022167762fb9558aedf579f5648097592a))
+* Faster random sampling ([#9655](https://github.com/AztecProtocol/aztec-packages/issues/9655)) ([969a3f0](https://github.com/AztecProtocol/aztec-packages/commit/969a3f0b2d5bbce95126685b1a056f378a4c4d78))
+* Faster randomness sampling for field elements ([#9627](https://github.com/AztecProtocol/aztec-packages/issues/9627)) ([b98e93f](https://github.com/AztecProtocol/aztec-packages/commit/b98e93f4befb985c72e8768f378face2dcc79810))
+* Graph methods for circuit analysis (part 1) ([#7948](https://github.com/AztecProtocol/aztec-packages/issues/7948)) ([eeea55a](https://github.com/AztecProtocol/aztec-packages/commit/eeea55a39e9e1a417ddf79e44575420e5efcdfcf))
+
+
+### Bug Fixes
+
+* Add set service name for otel in local ([#9644](https://github.com/AztecProtocol/aztec-packages/issues/9644)) ([b70b6f1](https://github.com/AztecProtocol/aztec-packages/commit/b70b6f10f1a809436bb1e2712c66b12ac98118d7))
+* Bench e2e jobs ([#9662](https://github.com/AztecProtocol/aztec-packages/issues/9662)) ([2bdfbed](https://github.com/AztecProtocol/aztec-packages/commit/2bdfbed896d5d806f09f69bb257b83008ddbf31c))
+* Fix random for Mac users  ([#9670](https://github.com/AztecProtocol/aztec-packages/issues/9670)) ([bf5d62d](https://github.com/AztecProtocol/aztec-packages/commit/bf5d62d4332548ac7798085eb98cedea88131d9d))
+* **logs:** DEBUG env var considered unset if '' ([#9657](https://github.com/AztecProtocol/aztec-packages/issues/9657)) ([cb23cd3](https://github.com/AztecProtocol/aztec-packages/commit/cb23cd3c04263427ac1e9ff738002f5fa2fec287))
+* Provernode needs to reference pod ip ([#9650](https://github.com/AztecProtocol/aztec-packages/issues/9650)) ([4eef7e3](https://github.com/AztecProtocol/aztec-packages/commit/4eef7e3d2a1e0539438e3e1c818e7d6c8dd4fef5))
+* Remove extra `number` from return type of `acirGetCircuitSizes` ([#9493](https://github.com/AztecProtocol/aztec-packages/issues/9493)) ([1aef553](https://github.com/AztecProtocol/aztec-packages/commit/1aef553d0991fca9940ed0521dab246de08a0a77))
+* **val:** Decrease default polling interval ([#9647](https://github.com/AztecProtocol/aztec-packages/issues/9647)) ([b880488](https://github.com/AztecProtocol/aztec-packages/commit/b880488c7ef5b2bbcc6d220f9d4ffc86537be05f))
+
+
+### Miscellaneous
+
+* Fix get_bench_jobs.sh ([#9628](https://github.com/AztecProtocol/aztec-packages/issues/9628)) ([abc424a](https://github.com/AztecProtocol/aztec-packages/commit/abc424a557ab6cfa68162400a94aef18577e9b74))
+* Make docker-compose tests less spammy ([#9659](https://github.com/AztecProtocol/aztec-packages/issues/9659)) ([6339dc5](https://github.com/AztecProtocol/aztec-packages/commit/6339dc5a4aaeeefe27b0e9cb59d594374ddafc72))
+* Redo typo PR by dsarfed ([#9667](https://github.com/AztecProtocol/aztec-packages/issues/9667)) ([4fc6f8b](https://github.com/AztecProtocol/aztec-packages/commit/4fc6f8b44b7e58d982151732fa6d9691e73635bc))
+* Remove `recursive` from ACIR format; add them to API and CLI ([#9479](https://github.com/AztecProtocol/aztec-packages/issues/9479)) ([d2a84c4](https://github.com/AztecProtocol/aztec-packages/commit/d2a84c405291b5a04576c133b0e74327d9092db1))
+* Safe JSON RPC server and client ([#9656](https://github.com/AztecProtocol/aztec-packages/issues/9656)) ([e63e219](https://github.com/AztecProtocol/aztec-packages/commit/e63e21970570ef272a45723a27faa6192522c759))
+
 ## [0.62.0](https://github.com/AztecProtocol/aztec-packages/compare/aztec-packages-v0.61.0...aztec-packages-v0.62.0) (2024-11-01)
 
 

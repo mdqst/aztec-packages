@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.63.0](https://github.com/AztecProtocol/aztec-packages/compare/barretenberg-v0.62.0...barretenberg-v0.63.0) (2024-11-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove `recursive` from ACIR format; add them to API and CLI ([#9479](https://github.com/AztecProtocol/aztec-packages/issues/9479))
+
+### Features
+
+* Faster random sampling ([#9655](https://github.com/AztecProtocol/aztec-packages/issues/9655)) ([969a3f0](https://github.com/AztecProtocol/aztec-packages/commit/969a3f0b2d5bbce95126685b1a056f378a4c4d78))
+* Faster randomness sampling for field elements ([#9627](https://github.com/AztecProtocol/aztec-packages/issues/9627)) ([b98e93f](https://github.com/AztecProtocol/aztec-packages/commit/b98e93f4befb985c72e8768f378face2dcc79810))
+* Graph methods for circuit analysis (part 1) ([#7948](https://github.com/AztecProtocol/aztec-packages/issues/7948)) ([eeea55a](https://github.com/AztecProtocol/aztec-packages/commit/eeea55a39e9e1a417ddf79e44575420e5efcdfcf))
+
+
+### Bug Fixes
+
+* Fix random for Mac users  ([#9670](https://github.com/AztecProtocol/aztec-packages/issues/9670)) ([bf5d62d](https://github.com/AztecProtocol/aztec-packages/commit/bf5d62d4332548ac7798085eb98cedea88131d9d))
+
+
+### Miscellaneous
+
+* Redo typo PR by dsarfed ([#9667](https://github.com/AztecProtocol/aztec-packages/issues/9667)) ([4fc6f8b](https://github.com/AztecProtocol/aztec-packages/commit/4fc6f8b44b7e58d982151732fa6d9691e73635bc))
+* Remove `recursive` from ACIR format; add them to API and CLI ([#9479](https://github.com/AztecProtocol/aztec-packages/issues/9479)) ([d2a84c4](https://github.com/AztecProtocol/aztec-packages/commit/d2a84c405291b5a04576c133b0e74327d9092db1))
+
 ## [0.62.0](https://github.com/AztecProtocol/aztec-packages/compare/barretenberg-v0.61.0...barretenberg-v0.62.0) (2024-11-01)
 
 
